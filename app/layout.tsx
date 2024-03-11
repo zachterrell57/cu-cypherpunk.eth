@@ -5,6 +5,7 @@ import { cn } from "@/utils";
 import Navbar from "@/components/Navbar";
 import "@rainbow-me/rainbowkit/styles.css";
 import Providers from "@/providers";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
             <Navbar />
           </div>
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
