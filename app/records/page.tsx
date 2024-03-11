@@ -30,37 +30,39 @@ export default function Records() {
 
   return (
     <>
-      <main className="mx-auto flex h-full min-h-screen w-full max-w-5xl flex-col gap-2 px-2 pt-24">
-        <h2 className="font-zen text-2xl font-medium">Records</h2>
-        <p className="font-medium text-secondary-dark">
-          View and update new records
-        </p>
+      <main className="flex h-full min-h-screen w-full justify-center bg-[#FAFAFA] p-32 px-2">
+        <div className="flex w-full max-w-5xl flex-col gap-2">
+          <h2 className="font-zen text-2xl font-medium">Records</h2>
+          <p className="font-medium text-secondary-dark">
+            View and update new records
+          </p>
 
-        {address ? (
-          records ? (
-            <UserRecords records={records} />
+          {address ? (
+            records ? (
+              <UserRecords records={records} />
+            ) : (
+              <div className="flex h-96 flex-col items-center justify-center gap-4">
+                <p className="font-medium text-secondary-dark">
+                  No name detected
+                </p>
+                <button
+                  type="button"
+                  className="w-64 rounded-lg bg-primary-blue  p-4 font-semibold"
+                  onClick={() => router.push("/")}
+                >
+                  Mint Name
+                </button>
+              </div>
+            )
           ) : (
             <div className="flex h-96 flex-col items-center justify-center gap-4">
               <p className="font-medium text-secondary-dark">
-                No name detected
+                Connect wallet to view records
               </p>
-              <button
-                type="button"
-                className="w-64 rounded-lg bg-primary-blue  p-4 font-semibold"
-                onClick={() => router.push("/")}
-              >
-                Mint Name
-              </button>
+              <ConnectButton />
             </div>
-          )
-        ) : (
-          <div className="flex h-96 flex-col items-center justify-center gap-4">
-            <p className="font-medium text-secondary-dark">
-              Connect wallet to view records
-            </p>
-            <ConnectButton />
-          </div>
-        )}
+          )}
+        </div>
       </main>
     </>
   );

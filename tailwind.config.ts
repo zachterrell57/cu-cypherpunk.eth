@@ -15,7 +15,7 @@ const config: Config = {
         "primary-gray": "#262626",
         "primary-gray-light": "#A3A3A3",
         "primary-blue": "#9EE8D5",
-        "primary-blue-light": "#E8F6F3",
+        "primary-blue-light": "#CEF6F3",
         "primary-dark": "#171717",
         "secondary-dark": "#525252",
         "border-light": "#F5F5F5",

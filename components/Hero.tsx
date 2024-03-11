@@ -6,7 +6,6 @@ import { useAccount } from "wagmi";
 import { cn } from "@/utils";
 import { useState } from "react";
 import ErrorBadge from "./ErrorBadge";
-import { useQuery } from "@tanstack/react-query";
 import LoadingBadge from "./LoadingBadge";
 import SuccessBadge from "./SuccessBadge";
 import SuccessModal from "./SuccessModal";
@@ -67,7 +66,7 @@ const Hero = () => {
   const { address } = useAccount();
 
   return (
-    <div className="flex h-max w-full max-w-4xl grow flex-col items-center justify-center gap-10 bg-no-repeat px-2 pt-64">
+    <div className="flex h-full min-h-screen w-full max-w-4xl grow flex-col items-center justify-center gap-10 bg-[url('/main-background.svg')] bg-cover bg-center px-2 pt-48">
       <div className="flex flex-col items-center justify-center gap-3 text-center">
         <ArbitrumBadge />
         <h1 className="w-full font-zen text-2xl font-medium text-primary-dark tablet:text-4xl">
@@ -83,15 +82,15 @@ const Hero = () => {
         className="flex w-full flex-col items-center justify-center gap-2"
       >
         <div className="flex flex-col gap-2 tablet:flex-row">
-          <div className="flex w-full">
+          <div className="group flex w-full rounded-lg border has-[:focus]:border-primary-blue">
             <input
               {...register("name", { required: true, minLength: 4 })}
               type="text"
               placeholder="Choose a name"
-              className="border-light w-full rounded-l-lg border border-r-0 pl-4"
+              className="w-full rounded-l-lg  border-r pl-4 outline-none"
             />
 
-            <div className="border-light rounded-r-lg border bg-white p-4">
+            <div className="rounded-r-lg bg-white p-4">
               <span className="text-nowrap text-sm font-semibold text-primary-gray-light">
                 cu-cypherpunk.eth
               </span>
@@ -102,7 +101,9 @@ const Hero = () => {
             type="submit"
             className={cn(
               "w-full rounded-lg  p-4 font-semibold tablet:w-64",
-              address ? "bg-primary-blue" : "bg-gray-200 text-gray-400",
+              address
+                ? "bg-primary-blue hover:bg-primary-blue-light hover:text-primary-dark"
+                : "bg-gray-200 text-gray-400",
             )}
           >
             Mint
@@ -114,16 +115,18 @@ const Hero = () => {
         </p>
       </form>
 
-      {showMintSuccess && <SuccessBadge text="Mint Successful" />}
-      {showAccountError && <ErrorBadge text="Connect wallet to mint" />}
-      {showNameTakenError && <ErrorBadge text="Name Taken" />}
-      {showTransactionRejectedError && (
-        <ErrorBadge text="Transaction Rejected Error" />
-      )}
-      {showCheckingName && <LoadingBadge text="Checking name" />}
-      {showWaitingForTransaction && (
-        <LoadingBadge text="Waiting for transaction" />
-      )}
+      <div className="h-16">
+        {showMintSuccess && <SuccessBadge text="Mint Successful" />}
+        {showAccountError && <ErrorBadge text="Connect wallet to mint" />}
+        {showNameTakenError && <ErrorBadge text="Name Taken" />}
+        {showTransactionRejectedError && (
+          <ErrorBadge text="Transaction Rejected Error" />
+        )}
+        {showCheckingName && <LoadingBadge text="Checking name" />}
+        {showWaitingForTransaction && (
+          <LoadingBadge text="Waiting for transaction" />
+        )}
+      </div>
 
       {showSuccessModal && (
         <SuccessModal
