@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Zen_Dots } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/utils";
+import Navbar from "@/components/Navbar";
+import "@rainbow-me/rainbowkit/styles.css";
+import Providers from "@/providers";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const zenDots = Zen_Dots({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-zen",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn("relative", inter.className, zenDots.variable)}>
+        <Providers>
+          <div className="absolute flex w-full items-center justify-center p-2">
+            <Navbar />
+          </div>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
