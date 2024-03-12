@@ -33,64 +33,64 @@ const RecordsForm = ({ userRecord }: Props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-      <div className="flex flex-col gap-1">
-        <label htmlFor="avatar" className="font-bold">
+      <div className="flex flex-col gap-1 tablet:flex-row tablet:items-center">
+        <label htmlFor="avatar" className="w-1/4 font-bold">
           Avatar
         </label>
         <input
           id="avatar"
           type="text"
           defaultValue={userRecord.avatar}
-          className="rounded-lg bg-[#FAFAFA] p-2 text-sm"
+          className="w-full rounded-lg bg-[#FAFAFA] p-3 text-sm"
         />
       </div>
 
-      <div className="flex flex-col gap-1">
-        <label htmlFor="description" className="font-bold">
+      <div className="flex flex-col gap-1 tablet:flex-row tablet:items-center">
+        <label htmlFor="avatar" className="w-1/4 font-bold">
           Description
         </label>
         <input
           id="description"
           type="text"
           defaultValue={userRecord.description}
-          className="rounded-lg bg-[#FAFAFA] p-2 text-sm"
+          className="w-full rounded-lg bg-[#FAFAFA] p-3 text-sm"
         />
       </div>
 
-      <div className="flex flex-col gap-1">
-        <label htmlFor="location" className="font-bold">
+      <div className="flex flex-col gap-1 tablet:flex-row tablet:items-center">
+        <label htmlFor="avatar" className="w-1/4 font-bold">
           Location
         </label>
         <input
           id="location"
           type="text"
           defaultValue={userRecord.location}
-          className="rounded-lg bg-[#FAFAFA] p-2 text-sm"
+          className="w-full rounded-lg bg-[#FAFAFA] p-3 text-sm"
         />
       </div>
 
-      <div className="flex flex-col gap-1">
-        <label htmlFor="twitter" className="font-bold">
+      <div className="flex flex-col gap-1 tablet:flex-row tablet:items-center">
+        <label htmlFor="avatar" className="w-1/4 font-bold">
           X / Twitter
         </label>
         <input
           id="twitter"
           type="text"
           defaultValue={userRecord.twitter}
-          className="rounded-lg bg-[#FAFAFA] p-2 text-sm"
+          className="w-full rounded-lg bg-[#FAFAFA] p-3 text-sm"
           {...register("twitter")}
         />
       </div>
 
-      <div className="flex flex-col gap-1">
-        <label htmlFor="website" className="font-bold">
+      <div className="flex flex-col gap-1 tablet:flex-row tablet:items-center">
+        <label htmlFor="avatar" className="w-1/4 font-bold">
           Website
         </label>
         <input
           id="website"
           type="url"
           defaultValue={userRecord.website}
-          className="rounded-lg bg-[#FAFAFA] p-2 text-sm"
+          className="w-full rounded-lg bg-[#FAFAFA] p-3 text-sm"
           {...register("website")}
         />
       </div>
